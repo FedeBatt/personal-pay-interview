@@ -12,7 +12,6 @@ import styles from './WeatherWidget.styles'
 
 const WeatherWidget = (data: ForecastItem) => {
   const { main, dt_txt, weather} = data;
-  console.log("🚀 ~ WeatherWidget ~ weather:", weather)
   const date = formatDate(dt_txt).split(' ')
   const { temp, temp_max, temp_min, feels_like } = useCalcTemp(main)
   

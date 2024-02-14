@@ -59,6 +59,7 @@ const NewLocation = () => {
       <View style={styles.mainContainer}>
         <Text customStyle={{ marginVertical: 24 }}>Add other location</Text>
         <AutocompleteInput
+          disabled={inputValue === ''}
           value={inputValue}
           onChangeText={text => setInputValue(text)}
           onPress={handleSearch}

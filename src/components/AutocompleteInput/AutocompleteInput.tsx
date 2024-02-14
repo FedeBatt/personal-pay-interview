@@ -6,9 +6,10 @@ import icons from 'constants/icons'
 
 interface AutocompleteInputProps extends TextInputProps {
   onPress: () => void;
+  disabled: boolean;
 }
 
-export const AutocompleteInput: React.FC<AutocompleteInputProps> = ({onPress, ...props}) => {
+export const AutocompleteInput: React.FC<AutocompleteInputProps> = ({onPress, disabled, ...props}) => {
   return (
     <View>
       <TextInput
@@ -17,8 +18,8 @@ export const AutocompleteInput: React.FC<AutocompleteInputProps> = ({onPress, ..
         placeholderTextColor="gray"
         placeholder='Type some location'
       />
-      <TouchableOpacity onPress={() => onPress()} style={styles.searchButton}>
-        <Icon color='blue' size={24} icon={icons.search} />
+      <TouchableOpacity disabled={disabled} onPress={() => onPress()} style={styles.searchButton}>
+        <Icon color={disabled ? 'gray' : 'blue'} size={24} icon={icons.search} />
       </TouchableOpacity>
     </View>
   )
