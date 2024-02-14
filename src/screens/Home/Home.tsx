@@ -12,7 +12,7 @@ import { setCurrentDeviceLocation, setWeatherPerDayList, updateLocation } from "
 
 import { getWeatherByCityService, getWeatherPerDayService } from "services/weatherService"; 
 
-import { IForecastList } from "store/interfaces/weatherPerDay.interface";
+import { ForecastItem, IForecastList } from "store/interfaces/weatherPerDay.interface";
 import { DeviceLocationState, IForecast } from "store/interfaces/currentWeather.interface";
 
 import styles from './Home.styles'
@@ -20,7 +20,7 @@ import styles from './Home.styles'
 const Home = () => {
   const dispatch = useAppDispatch();
   const cityForecast = useAppSelector<IForecast | null>(state => state.locationList.currentLocation);
-  const forecastList = useAppSelector<IForecastList | null>(state => state.locationList.weatherList);
+  const forecastList = useAppSelector<ForecastItem[] | null>(state => state.locationList.weatherList);
   const location = useAppSelector<DeviceLocationState | null>(state => state.locationList.deviceLocationState)
 
   const getCurrentPosition = async () => {

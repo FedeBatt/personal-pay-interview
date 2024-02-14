@@ -3,10 +3,13 @@ import {
   DeviceLocationState,
   IForecast,
 } from "./interfaces/currentWeather.interface";
-import { IForecastList } from "./interfaces/weatherPerDay.interface";
+import {
+  ForecastItem,
+  IForecastList,
+} from "./interfaces/weatherPerDay.interface";
 
 interface LocationState {
-  weatherList: IForecastList | null;
+  weatherList: ForecastItem[] | null;
   currentLocation: IForecast | null;
   locations: IForecast[];
   editMode: boolean;
@@ -42,7 +45,7 @@ const locationListSlice = createSlice({
       if (state.currentLocation) {
         state.locations.push(state.currentLocation);
       }
-      
+
       state.currentLocation = action.payload;
 
       state.locations = state.locations.filter(
@@ -51,7 +54,7 @@ const locationListSlice = createSlice({
     },
     setWeatherPerDayList: (
       state,
-      action: PayloadAction<IForecastList | null>
+      action: PayloadAction<ForecastItem[] | null>
     ) => {
       state.weatherList = action.payload;
     },

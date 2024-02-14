@@ -10,7 +10,7 @@ import { useAppSelector } from 'store/store'
 import { IForecast } from 'store/interfaces/currentWeather.interface'
 
 const Location = () => {
-  const navigation = useNavigation();
+  const navigation: any = useNavigation();
   const location = useAppSelector<IForecast | null>(state => state.locationList.currentLocation);
   const locationList = useAppSelector<IForecast[] | null>(state => state.locationList.locations);
 
