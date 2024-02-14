@@ -39,8 +39,8 @@ Asegúrate de tener lo siguiente instalado en tu máquina antes de comenzar con 
 
 1. **Clona el Repositorio:**
    ```bash
-   git clone https://github.com/tu-usuario/tu-proyecto.git
-   cd tu-proyecto
+   git clone https://github.com/tu-usuario/tu-proyecto.git](https://github.com/FedeBatt/personal-pay-interview.git)
+   cd personal-pay-interview
 
 2. **Instala las Dependencias::**
    ```bash
