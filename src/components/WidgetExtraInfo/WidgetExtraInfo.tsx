@@ -20,7 +20,7 @@ const WidgetExtraInfo: React.FC<IWidgetExtraInfo> = ({icon, colorIcon, title, in
   return (
     <View>
       <View style={styles.container}>
-        <Icon style={{ marginBottom: 12 }} icon={icon} class="far" size={36} color={colorIcon} />
+        <Icon style={{ marginBottom: 12 }} icon={icon} size={36} color={colorIcon} />
         <Text customStyle={{ fontWeight: 'bold', }}>{title}</Text>
         <Text>{info}</Text>
       </View>
