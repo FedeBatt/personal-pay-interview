@@ -53,3 +53,6 @@ Asegúrate de tener lo siguiente instalado en tu máquina antes de comenzar con 
 3. **Corre el proyecto en Android:**
    ```bash
    Presiona la letra "A"
+
+## Aclaración
+Vale aclarar que la idea es siempre usar variables de entorno para preservar informacion sensible como en el caso de la API_KEY de OpenWeather, pero para facilitar el uso de la app se dejó en el proyecto.
