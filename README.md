@@ -2,7 +2,7 @@
 
 ## Descripción
 
-Aplicación móvil desarrollada utilizando React Native de forma nativa, que te permite obtener información actualizada sobre el clima de hasta 6 ubicaciones diferentes. Con una interfaz fácil de usar, podrás consultar las condiciones meteorológicas actuales y la previsión para los próximos días.
+Aplicación móvil desarrollada utilizando React Native de forma nativa, que permite visualizar el pronóstico climático actual y de los próximos 5 días en la ubicación actual y a su vez permite visualizar el pronóstico de otras 5 ciudades seleccionables. 
 
 ## Requisitos del Entorno de Desarrollo
 
