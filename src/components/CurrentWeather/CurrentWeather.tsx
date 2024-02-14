@@ -9,7 +9,7 @@ import { assetResolver } from 'utils/assetResolver';
 import { IForecast } from 'store/interfaces/currentWeather.interface';
 
 const CurrentWeather = (data: IForecast) => {
-  const { main, weather, wind, name } = data;
+  const { main, weather, name } = data;
   const { temp, temp_max, temp_min, feels_like } = useCalcTemp(main);
 
   return (

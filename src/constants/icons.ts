@@ -7,7 +7,11 @@ import {
   faEllipsisVertical,
   faSpinner,
   faSearch,
-  faTrash
+  faTrash,
+  faWind,
+  faTint,
+  faSun,
+  faMoon,
  } from "@fortawesome/free-solid-svg-icons";
 
 export default {
@@ -19,5 +23,9 @@ export default {
   elipsisVertical: faEllipsisVertical,
   spinner: faSpinner,
   search: faSearch,
-  trash: faTrash
+  trash: faTrash,
+  wind: faWind,
+  tint: faTint,
+  sun: faSun,
+  moon: faMoon,
 };

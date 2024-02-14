@@ -11,13 +11,10 @@ import NewLocation from "screens/NewLocation";
 
 import DrawerContent from "components/DrawerContent";
 import Icon from "components/Icon";
-
-import icons from "constants/icons";
-import theme from "theme";
 import CtaMenu from "components/CtaMenu";
-import Button from "components/Button";
-import { useAppDispatch } from "store/store";
-import { toggleEditMode } from "store/locationListSlice";
+import icons from "constants/icons";
+
+import theme from "theme";
 
 type RootStackParamList = {
   Main: undefined;
@@ -29,6 +26,34 @@ type RootStackParamList = {
 const Stack = createNativeStackNavigator<RootStackParamList>();
 const Drawer = createDrawerNavigator();
 
+const drawerScreenOptions = () => {
+  return {
+    drawerActiveBackgroundColor: theme.colors.light,
+    drawerActiveTintColor: theme.colors.primary,
+    drawerStyle: { flex: 1, backgroundColor: theme.colors.background, },
+    drawerLabelStyle: { marginLeft: -25, fontSize: theme.sizes[4] },
+  }
+}
+
+const headerLeft = (navigation: () => void) => {
+  return (
+    <TouchableOpacity
+      style={{
+        padding: 12,
+        justifyContent: 'center',
+        alignItems: 'center'
+      }}
+      onPress={navigation}
+    >
+      <Icon
+        icon={icons.arrowLeft}
+        size={theme.sizes[4]}
+        color={theme.colors.black}
+      />
+    </TouchableOpacity>
+  )
+}
+
 const Navigation = () => {
   return (
     <Stack.Navigator initialRouteName="Main" screenOptions={{ headerShown: false }}>
@@ -38,7 +63,7 @@ const Navigation = () => {
 };
 
 const LocationStack = () => {
-  const navigation = useNavigation();
+  const navigation: any = useNavigation();
 
   return (
     <Stack.Navigator
@@ -50,17 +75,7 @@ const LocationStack = () => {
         component={Location}
         options={{
           headerShown: true,
-          headerLeft: () =>
-            <TouchableOpacity
-              style={{ marginLeft: 24, marginRight: 8 }}
-              onPress={() => navigation.goBack()}
-            >
-              <Icon
-                icon={icons.arrowLeft}
-                size={16}
-                color={theme.colors.black}
-              />
-            </TouchableOpacity>,
+          headerLeft: () => headerLeft(() => navigation.goBack()),
           headerRight: () => <CtaMenu />
         }}
       />
@@ -68,17 +83,7 @@ const LocationStack = () => {
         options={{
           headerShown: true,
           headerTitle: "Add Location",
-          headerLeft: () =>
-            <TouchableOpacity
-              style={{ marginLeft: 24, marginRight: 8 }}
-              onPress={() => navigation.navigate('Location')}
-            >
-              <Icon
-                icon={icons.arrowLeft}
-                size={16}
-                color={theme.colors.black}
-              />
-            </TouchableOpacity>,
+          headerLeft: () => headerLeft(() => navigation.navigate('Location')),
         }}
         name="AddLocation"
         component={NewLocation}
@@ -92,12 +97,7 @@ const DrawerNavigation = () => {
     <Drawer.Navigator
       initialRouteName="Home"
       drawerContent={(props) => <DrawerContent {...props} />}
-      screenOptions={{
-        drawerActiveBackgroundColor: theme.colors.light,
-        drawerActiveTintColor: theme.colors.primary,
-        drawerStyle: { flex: 1, backgroundColor: theme.colors.background, },
-        drawerLabelStyle: { marginLeft: -25, fontSize: theme.sizes[4] },
-      }}
+      screenOptions={drawerScreenOptions}
     >
       <Drawer.Screen
         name="Home"

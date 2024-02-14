@@ -5,3 +5,5 @@ export const formatDate = (date: string): string => {
 
   return formatedDate;
 }
+
+export const unixFormat = (timestamp: any) => moment.unix(timestamp).format('HH:mm')
